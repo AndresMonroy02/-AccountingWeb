@@ -13,7 +13,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
   4. Optimization of time in the search for information.
 
 ## Solution offered
-    Manage personal ** finances ** through a website that allows the entry of a person's expenses. 
+    Manage personal finances through a website that allows the entry of a person's expenses. 
     As well as the income and the way of using the money of the same. 
     Allowing full control over money movements at the ease of a button.
 
@@ -24,7 +24,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 This project offers a way for people to manage their personal finances and find out how 
 they can optimize their finances
 
-End User
+## End User
 Any person, whether legal or natural, will be able to enjoy the benefits granted by the 
 website since it is designed to organize general expenses, during the time they use 
 the website.
