@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+# AccountingWeb
 
-You can use the [editor on GitHub](https://github.com/AndresMonroy02/-AccountingWeb/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Documentary of The Accounting Web
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+In this space all the documentation of the accounting web project will be uploaded.
 
-### Markdown
-
+## Definition of the problem
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+  1. Excessive use of paper for invoices.
+  2. Unnecessary space for the storage of said invoices.
+  3. Loss of accounting information.
+  4. Optimization of time in the search for information.
 
-# Header 1
-## Header 2
-### Header 3
+## Solution offered
+    Manage personal ** finances ** through a website that allows the entry of a person's expenses. 
+    As well as the income and the way of using the money of the same. 
+    Allowing full control over money movements at the ease of a button.
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## Justification
 
-[Link](url) and ![Image](src)
-```
+This project offers a way for people to manage their personal finances and find out how 
+they can optimize their finances
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+End User
+Any person, whether legal or natural, will be able to enjoy the benefits granted by the 
+website since it is designed to organize general expenses, during the time they use 
+the website.
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AndresMonroy02/-AccountingWeb/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Utility
 
-### Support or Contact
+Use web platforms that have ads, since it is an accessible opportunity to start advertising 
+the product or service we offer. In addition to using Inbound Marketing, which will help us 
+by advertising offers for people who are not yet at the time of purchase and in exchange for 
+the offers, people will give you their information – such as name, email, company, position, 
+segment, etc – that you will use to qualify them and maintain a relationship.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+
+## Functional Requirements
+  1. Data storage (The information must be stored in a database where said information must be 
+  encrypted, in addition, the persistence of this information must be ensured)
+  2. Graphs (Presentation of the results that the user requests, in a representative graph 
+  that explains by means of a trend line, what their balances are for the selected period of time).
+  3.Reports (Presentation of the users' financial statements, regarding the requested time, that is, 
+  if you want to see your records for the last 2 or 3 months, you can do so by simply indicating the 
+  time in our application)
+  4. Login, registration and updating of user data
+  5. vehicle management module (in this module the user enters the Soat information, Tecnomecanica, 
+  mileage times and with this information the user will be reminded if any of these aspects is about to expire).
