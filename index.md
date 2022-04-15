@@ -54,13 +54,14 @@ segment, etc – that you will use to qualify them and maintain a relationship.
   
 ## Model C4 Diagramas: 
 
-  Diagram 1
+  System Context Diagram
   ![C4 model](https://user-images.githubusercontent.com/55327523/163630325-d0acf411-c14c-4630-9293-6e23fb0de0e3.png)
   
-  Diagram 2
-  ![C4 parte 2](https://user-images.githubusercontent.com/55327523/163630359-6c58cf49-da8d-4b6c-9cd9-79d04bff63e6.png)
+  Container Diagram
+  ![C4 model diagram2](https://user-images.githubusercontent.com/55327523/163630739-6cb45c12-3711-4a93-b650-e475af53d474.png)
 
-  Diagram 3
+  Component Diagram
+  ![C4 parte 2](https://user-images.githubusercontent.com/55327523/163630359-6c58cf49-da8d-4b6c-9cd9-79d04bff63e6.png)
   ![C4 parte 3](https://user-images.githubusercontent.com/55327523/163630372-14b15ada-ab47-429f-9f0c-2203cbdb3c06.png)
 
   
