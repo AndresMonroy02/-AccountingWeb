@@ -50,3 +50,17 @@ segment, etc – that you will use to qualify them and maintain a relationship.
   4. Login, registration and updating of user data
   5. vehicle management module (in this module the user enters the Soat information, Tecnomecanica, 
   mileage times and with this information the user will be reminded if any of these aspects is about to expire).
+  
+  
+  ## Model C4 Diagramas 
+  Diagram 1
+  ![C4 model](https://user-images.githubusercontent.com/55327523/163630325-d0acf411-c14c-4630-9293-6e23fb0de0e3.png)
+  
+  Diagram 2
+  ![C4 parte 2](https://user-images.githubusercontent.com/55327523/163630359-6c58cf49-da8d-4b6c-9cd9-79d04bff63e6.png)
+
+  Diagram 3
+  ![C4 parte 3](https://user-images.githubusercontent.com/55327523/163630372-14b15ada-ab47-429f-9f0c-2203cbdb3c06.png)
+
+  
+
