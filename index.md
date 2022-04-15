@@ -52,7 +52,8 @@ segment, etc – that you will use to qualify them and maintain a relationship.
   mileage times and with this information the user will be reminded if any of these aspects is about to expire).
   
   
-  ## Model C4 Diagramas 
+## Model C4 Diagramas: 
+
   Diagram 1
   ![C4 model](https://user-images.githubusercontent.com/55327523/163630325-d0acf411-c14c-4630-9293-6e23fb0de0e3.png)
   
