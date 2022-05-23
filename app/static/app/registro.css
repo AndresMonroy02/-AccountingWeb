@@ -1,0 +1,125 @@
+
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(../images/backgroundprueba.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+.container-form{
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    transition: all .5s ease-out;
+}
+
+.welcome-back{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.602);
+    height: fit-content;
+    padding: 1rem;
+    margin: 1rem;
+
+}
+.message{
+    padding: 1rem;
+}
+
+.message h2 {
+    font-size: 1.7rem;
+    padding: 1rem;
+}
+
+.message button{
+    padding: 1rem;
+    font-weight: 600;
+    background-color: #A5A58D;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: .9rem;
+    margin-top: 2rem;
+    transition: all .3s ease-in;
+    color: #fff;
+}
+
+.message button:hover{
+    background-color: #FFF1E6;
+    color: #000;
+}
+
+.register-form{
+    width: 500px;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: rgba(0, 0, 0, 0.602);
+    text-align: center;
+}
+
+.create-account{
+    padding: 2.7rem;
+    font: 1.7rem;
+}
+
+.google-icon{
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border: solid thin white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all .3s ease-in;
+}
+.register-form p{
+    padding: 2rem 0;
+}
+
+.register-form input{
+    width: 70%;
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: white thin solid;
+    text-align: center;
+    outline: none;
+    padding: .2rem 0;
+    font-size: .9rem;
+    color: #fff;
+}
+
+.register-form button{
+    width: 60%;
+    margin: 0.5rem;;
+    border: solid thin #A5A58D;
+    padding: .7rem;
+    border-radius: 2rem;
+    background-color: #A5A58D;
+    font-weight: 600;
+    font-size: .8rem;
+    cursor: pointer;
+    color: #fff;
+}
+.register-form ::placeholder{
+    color: #fff;
+}

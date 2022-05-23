@@ -1,0 +1,113 @@
+{% extends 'system/baseuserlogged.html' %}
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Configuraciones</title>
+    <link rel="stylesheet" href="{% static 'app/expenses.css' %}">
+</head>
+
+<body>
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="las la-wallet"></span> <span>Accounting web</span></h2>
+        </div>
+        <!--Secciones-del-tablero de gastos-->
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="{%url 'expenses'%}" ><span class="las la-comments-dollar"></span>
+                    <span>Mis gastos</span></a>
+                </li>
+                <li>
+                    <a href="{%url 'vehicules'%}" ><span class="las la-car"></span>
+                    <span>Mis vehiculos</span></a>
+                </li>
+                <li>
+                    <a href="{%url 'reports'%}" ><span class="las la-chart-pie"></span>
+                    <span>Mis reportes</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'config' user_id %}" class="active"><span class="las la-tools"></span>
+                    <span>Configuraciones</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'logout'%}"><span class="las la-times-circle"></span>
+                    <span>Cerrar Sesion</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label> Mis Datos 
+            </h2>
+            
+            <div class="user-wrapper">
+                <img src="" width="40px" height="40px" alt="">
+                <div>
+                    <h4>{{name}}</h4>
+                    <small>{{email}}</small>
+                </div>
+            </div>
+        </header>
+
+
+        <main>   
+            <div class="container">
+                <form action="">
+                        <div class="row">
+                            <div class="col-25">
+                            <label for="fname">Nombre y apellido</label>
+                            </div>
+                            <div class="col-75">
+                            <input type="text" id="fullname" name="fullname" disabled value="{{user.fullname}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                            <label for="lname">Salario</label>
+                            </div>
+                            <div class="col-75">
+                            <input type="text" id="salary" name="salary" disabled placeholder="{{user.salary}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                            <label for="lname">Dia de pago</label>
+                            </div>
+                            <div class="col-75">
+                            <input type="text" id="pay_day" name="pay_day" disabled placeholder="{{user.pay_day}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card-header">
+                                <h3>Opciones</h3>
+                                <a href="{% url 'configedit' user_id %}" class="active"><span class="las la-tools"></span>
+                                <span>Editar</span></a>
+                            </div>
+                        </div>
+                </form>
+                
+            </div>    
+        </main>
+        
+
+</body>
+
+</html>
+
+{% endblock %}

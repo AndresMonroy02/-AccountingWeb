@@ -1,0 +1,213 @@
+{% extends 'system/baseuserlogged.html' %}
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Mis vehiculos</title>
+    <link rel="stylesheet" href="{% static 'app/expenses.css' %}">
+</head>
+
+<body>
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="las la-wallet"></span> <span>Accounting web</span></h2>
+        </div>
+        <!--Secciones-del-tablero de gastos-->
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="{%url 'expenses'%}" ><span class="las la-comments-dollar"></span>
+                    <span>Mis gastos</span></a>
+                </li>
+                <li>
+                    <a href="{%url 'vehicules'%}" class="active"><span class="las la-car"></span>
+                    <span>Mis vehiculos</span></a>
+                </li>
+                <li>
+                    <a href="{%url 'reports'%}"><span class="las la-chart-pie"></span>
+                    <span>Mis reportes</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'config' user_id %}"><span class="las la-tools"></span>
+                    <span>Configuraciones</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'logout'%}"><span class="las la-times-circle"></span>
+                    <span>Cerrar Sesion</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label> Mis Vehiculos 
+            </h2>
+            
+            <div class="user-wrapper">
+                <img src="" width="40px" height="40px" alt="">
+                <div>
+                    <h4>{{name}}</h4>
+                    <small>{{email}}</small>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="cards">
+
+                <div class="card-single" type="button" id="div-modal">
+                    
+                    <div>
+                        <h1>{{salary}} saldo disponible</h1> 
+                    </div>
+                    <div>
+                        <span class="las la-dollar-sign"></span>
+                    </div>
+                </div>
+    
+                <div class="card-single">
+                    <div>
+                        <h1>Tienes {{num_vehicules}} vehiculos</h1>
+                    </div>
+                    <div>
+                        <span class="las la-car-side"></span>
+                    </div>
+                </div>
+    
+                <div class="card-single">
+                    <div>
+                        <h1>Tienes {{num_reports}} Reportes</h1>
+                    </div>
+                    <div>
+                        <span class="las la-chart-pie"></span>
+                    </div>
+                </div>
+    
+                <div class="card-single">
+                    <div>
+                        <h1>{{total_expenses}}55555</h1>
+                        <span>Has Gastado</span>
+                    </div>
+                    <div>
+                        <span class="lab la-wpforms"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!--Tabla-->
+            <div class="recent-grid">
+                <div class="projects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Vehiculos</h3>
+                            <span><button id="open">Agregar Vehiculos</span>                         
+                        </div>
+
+                        <div class="card-body">
+                            {% for vehicule in vehicules %}
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="{% static 'images/carro-default.png' %}" alt="Avatar" style="width:300px;height:300px;">
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h1>{{vehicule.placa}}</h1>
+                                        <p class="card-text">
+                                            <ol>
+                                            <li>tecnomecanica: {{vehicule.tecno}}</li>
+                                            <li>SOAT: {{vehicule.soat}}</li>
+                                            <li>Cambio de Aceite: {{vehicule.oil_change}}</li>
+                                            </ol>
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Actualizar</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}  
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="customers">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Anotaciones por pagar</h3>
+
+                            <button>Mostrar todo <span class="las la-arrow-right">
+                            </span></button>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Cuentas bancarias</h4>
+                                        <small>pagar importante</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    
+                                    <span class="las la-money-check"></span>
+                                    
+                                </div>
+                            </div>              
+
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </main>
+        
+    </div>
+
+    <div class="modal-input" id="modal-input">
+        <div class="modal-container">
+        <form class="vehicule-form" method= POST>
+            {% csrf_token %}
+            <h3>Ingrese los datos del vehiculo</h3>
+            <input id = "placa" placeholder="placa" name="placa" type="text">
+            <input id = "year"  placeholder="año" name="year"  type="number">
+            <input id = "model" placeholder="modelo" name="model">
+            <label for="">fecha ultima tecnomecanica</label>
+            <input type="date" id=e name="tecno" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" />
+            <label for="">fecha comienzo SOAT</label>
+            <input type="date" id=e1 name="soat" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" />
+            <label for="">fecha ultimo cambio de aceite</label>
+            <input type="date" id=e2 name="oil_change" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" />
+
+            <script>
+            document.getElementById('e').value = new Date().toISOString().substring(0, 10);
+            document.getElementById('e1').value = new Date().toISOString().substring(0, 10);
+            document.getElementById('e2').value = new Date().toISOString().substring(0, 10);
+            </script>
+            <a href="#"><button type="submit" class="btn btn-input">Guardar</button></a>
+            <a href="#" id="close"><button type="button" class="btn btn-input">Cancelar</button></a>
+            <script src="{% static 'js/popup.js' %}"></script>
+        </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}

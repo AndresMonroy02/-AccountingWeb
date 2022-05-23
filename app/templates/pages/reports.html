@@ -1,0 +1,196 @@
+{% extends 'system/baseuserlogged.html' %}
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Reportes</title>
+    <link rel="stylesheet" href="{% static 'app/expenses.css' %}">
+</head>
+
+<body>
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="las la-wallet"></span> <span>Accounting web</span></h2>
+        </div>
+        <!--Secciones-del-tablero de gastos-->
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="{%url 'expenses'%}" ><span class="las la-comments-dollar"></span>
+                    <span>Mis gastos</span></a>
+                </li>
+                <li>
+                    <a href="{%url 'vehicules'%}" ><span class="las la-car"></span>
+                    <span>Mis vehiculos</span></a>
+                </li>
+                <li>
+                    <a href="{%url 'reports'%}" class="active"><span class="las la-chart-pie"></span>
+                    <span>Mis reportes</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'config' user_id %}"><span class="las la-tools"></span>
+                    <span>Configuraciones</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'logout'%}"><span class="las la-times-circle"></span>
+                    <span>Cerrar Sesion</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label> Mis Reportes 
+            </h2>
+            
+            <div class="user-wrapper">
+                <img src="" width="40px" height="40px" alt="">
+                <div>
+                    <h4>{{name}}</h4>
+                    <small>{{email}}</small>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="cards">
+
+                <div class="card-single" type="button" id="div-modal">
+                    
+                    <div>
+                        <h1>{{salary}} saldo disponible</h1> 
+                    </div>
+                    <div>
+                        <span class="las la-dollar-sign"></span>
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                        <h1>Tienes {{num_vehicules}} vehiculos</h1>
+                    </div>
+                    <div>
+                        <span class="las la-car-side"></span>
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                        <h1>Tienes {{num_reports}} Reportes</h1>
+                    </div>
+                    <div>
+                        <span class="las la-chart-pie"></span>
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                        <h1>{{total_expenses}}55555</h1>
+                        <span>Has Gastado</span>
+                    </div>
+                    <div>
+                        <span class="lab la-wpforms"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!--Tabla-->
+            <div class="recent-grid">
+                <div class="projects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Reportes Recientes</h3>
+                            <button id="open">Generar Reporte</span>                         
+                        </div>
+
+                        <div class="card-body">
+                            
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="customers">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                            <td>Descripcion</td>
+                                            <td>Fecha Inicio</td>
+                                            <td>Fecha Final</td>
+                                            <td>Abrir</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for report in reports %}
+                                        <tr>
+                                            <td>{{report.name}}</td>
+                                            <td>{{report.description}}</td>
+                                            <td>{{report.start_date}}</td>
+                                            <td>{{report.end_date}}</td>
+                                            <td>
+                                            <a href="{% url 'reportsViews' report.id %}"><span id="edit-icon" class="las la-arrow-circle-right"></span></a>
+                                            </td>
+                                            
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+        
+
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </main>
+        
+    </div>
+
+    <div class="modal-input" id="modal-input">
+        <div class="modal-container">
+            <form class="expenses-form" method= POST>
+            {% csrf_token %}
+                <h3>Ingrese los datos del reporte</h3>
+
+                <label for="">Digite la fecha de inicio</label>
+                <input type="date" id="e" name="start_date" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" />
+                <label for="">Digite la fecha Final</label>
+                <input type="date" id="e1" name="end_date" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" />
+                <input id = "name" name="name" value="Reporte">
+                <script>
+                    document.getElementById('e').value = new Date().toISOString().substring(0, 10);
+                    document.getElementById('e1').value = new Date().toISOString().substring(0, 10);
+                </script>
+                <a href="{%url 'reports'%}"><button type="submit" class="btn btn-input">Filtrar Fechas</button></a>
+                <a href="#" id="close"><button type="button" class="btn btn-input">Cancelar</button></a>
+                <script src="{% static 'js/popup.js' %}"></script>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+{% endblock %}

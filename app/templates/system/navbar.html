@@ -1,0 +1,19 @@
+{% load static %}
+
+<head> 
+    <link rel="stylesheet" href="{% static 'app/navbar.css' %}">
+
+</head>
+    <header class="header">
+        <div class="logo">
+            <a href="{%url 'index'%}"><img src="{% static 'images/logo-image.png' %}" alt="Logo de la app"></a>
+            
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="{%url 'index'%}">Inicio</a></li>
+                <li><a href="{%url 'contact'%}">contacto</a></li>
+                <li><a href="{%url 'login'%}">Iniciar Sesión</a></li>
+            </ul>
+        </nav> 
+    </header>

@@ -1,0 +1,28 @@
+{% load static %}
+
+<head> 
+    <link rel="stylesheet" href="{% static 'app/navbar.css' %}">
+
+</head>
+    <header class="header">
+        <div class="logo">
+            <a href="{%url 'index'%}"><img src="{% static 'images/logo-image.png' %}" alt="Logo de la app"></a>
+            
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{%url 'indexlogged'%}">Inicio</a></li>
+            </ul>
+        </nav>
+        <div class="dropdown">
+                <button class="btn-drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="{% url 'indexlogged' %}">Inicio</a></li>
+                    <li><a class="dropdown-item" href="{% url 'config' %}">Configuraciones</a></li>
+                    <li><a class="dropdown-item" href="{% url 'logout'%}">Cerrar Sesión</a></li>
+                </ul>
+        </div>
+    </header>
+
