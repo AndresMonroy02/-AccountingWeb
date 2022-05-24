@@ -133,7 +133,7 @@ def vehicules(request):
         user_id = request.session['usuario']['id']
         vehicules = get_user_vehicules(user_id)
         num_vehicules, name,email,salary, pay_day= get_user_info(user_id)
-        return render (request, 'pages/vehicules.html', {'vehicules':vehicules, 'name':name , 'email':email, 'num_vehicules':num_vehicules, 'salary':salary,'user_id':user_id})
+        return render (request, 'pages/vehicules.html', {'vehicules':vehicules,'name':name , 'email':email, 'num_vehicules':num_vehicules, 'salary':salary,'user_id':user_id})
     else:
         return redirect('login')
 
@@ -203,8 +203,6 @@ def edit(request, expense_id):
             user = Users.objects.get(id=user_id)
             num_vehicules, name,email,salary, pay_day= get_user_info(user_id)
             if expense_category == NULL:
-                print('hola')
-                # return render (request, 'pages/edit.html', {'error':'la categoria no puede estar vacia','name':name , 'email':email, 'num_vehicules':num_vehicules, 'salary':salary, 'user_id':user_id})
                 return redirect('edit', expense_id)
             else:
                 if expense_description == '':
@@ -221,6 +219,29 @@ def edit(request, expense_id):
             num_vehicules, name,email,salary, pay_day= get_user_info(user_id)
             return render(request, 'pages/edit.html', {'expense':expense,'name':name , 'email':email, 'num_vehicules':num_vehicules, 'salary':salary, 'user_id':user_id})
         
+def edit_vehicule(request, vehicule_id):
+    if 'usuario' in request.session:
+        if request.method == "POST":
+            values = request.POST.get
+            placa = values('placa')
+            year = values('year')
+            model = values('model')
+            tecno = values('tecno')
+            soat = values('soat')
+            oil_change = values('oil_change')
+            vehicule = Vehicule.objects.get(placa=vehicule_id)
+            user_id = request.session['usuario']['id']
+            user = Users.objects.get(id=user_id)
+            num_vehicules, name,email,salary, pay_day= get_user_info(user_id)
+            vehicule = Vehicule(placa=placa, year=year, model=model, tecno=tecno, soat=soat, oil_change=oil_change, user=user)
+            vehicule.save()
+            return redirect('vehicules')
+        else:
+            vehicule = Vehicule.objects.get(placa=vehicule_id)
+            user_id = request.session['usuario']['id']
+            num_vehicules, name,email,salary, pay_day= get_user_info(user_id)
+            return render(request, 'pages/edit_vehicule.html', {'vehicule':vehicule, 'name':name , 'email':email, 'num_vehicules':num_vehicules, 'salary':salary, 'user_id':user_id})
+
 
 def config(request, user_id):
     user = User_info.objects.get(user_id=user_id)

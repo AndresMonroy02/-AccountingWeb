@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Mis Gastos</title>
     <link rel="stylesheet" href="{% static 'app/expenses.css' %}">
+    <link rel="stylesheet" href="{% static 'app/config-form.css' %}">
 </head>
 
 <body>
@@ -53,7 +54,7 @@
             <h2>
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
-                </label> Mis Gastos/Edicion 
+                </label> Mis Gastos/Editar 
             </h2>
             
             <div class="user-wrapper">
@@ -110,40 +111,69 @@
             <!--Tabla-->
             <div class="recent-grid">
                 <div class="projects">
-                    <form class="expenses-form" method= POST>
-                    {% csrf_token %}
-                        <h3>Editar los datos del gasto</h3>
-                        <input id = "valor" type = "number"  placeholder="Valor" name="expense_amount" value="{{ expense.amount}}">
-                        <select name="expense_category" id="categoria" placeholder="Categoria">
-                            <option disabled="">Seleccione el tipo de gasto</option>
-                            <option value="Alimentacion">Alimentación</option>
-                            <option value="Transporte">Transporte</option>
-                            <option value="Ropa">Ropa</option>
-                            <option value="Hogar">Hogar</option>
-                            <option value="Salud">Salud</option>
-                            <option value="Educación">Educación</option>
-                            <option value="Otros" selected>Otros</option>
-                        </select>
-                        <input id = "descripcion" placeholder="Descripcion" name="expense_description" maxlength="100" value="{{expense.description}}">
-                        <label for="">Digite la fecha en que realizo el gasto</label>
-                        <input type=date id=e name="expense_date" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" value="2022-01-15"/>
-
-<script>
-document.getElementById('e').value = new Date().toISOString().substring(0, 10);
-</script>
-                        <label for=""> {{ error }}</label>
-                        <a href="#"><button type="submit" class="btn btn-input">Guardar</button></a>
-                        <a href="{%url 'expenses'%}" id="close"><button type="button" class="btn btn-input">Cancelar</button></a>
-                    </div>
-                </div>
-
-                
-            </div>
-                
-                
-            </div>
+                    <form class="user-info-form" method= POST>
+                        {% csrf_token %}
+                        <div class="tittle">
+                            <h3>Editar los datos del gasto</h3>
+                        </div>
+                            <div class="row">
+                                <div class="col-25">
+                                <label for="fname">Valor</label>
+                                </div>
+                                <div class="col-75">
+                                <input type="number" id="fullname" name="expense_amount"  value="{{ expense.amount}}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                <label for="fname">Descripcion</label>
+                                </div>
+                                <div class="col-75">
+                                    <input id = "valor" type = "text" placeholder="Descripcion" name="expense_description" value="{{ expense.description}}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                <label for="fname">Categoria</label>
+                                </div>
+                                <div class="col-75">
+                                    <select name="expense_category" id="categoria" placeholder="Categoria">
+                                        <option disabled="">Seleccione el tipo de gasto</option>
+                                        <option value="Alimentacion">Alimentación</option>
+                                        <option value="Transporte">Transporte</option>
+                                        <option value="Ropa">Ropa</option>
+                                        <option value="Hogar">Hogar</option>
+                                        <option value="Salud">Salud</option>
+                                        <option value="Educación">Educación</option>
+                                        <option value="Otros" selected>Otros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                <label for="lname">Fecha del Gasto</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type=date id=e name="expense_date" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" value="2022-01-15"/>
+                                    <script>
+                                    document.getElementById('e').value = new Date().toISOString().substring(0, 10);
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="card-header">
+                                    <h3>Opciones</h3>
+                                    <a href="#"><button type="submit" class="btn btn-input">Guardar</button></a>
+                                    <a href="{%url 'expenses'%}" id="close"><button type="button" class="btn btn-input">Cancelar</button></a>
+                                </div>
+                                <script>
+                                    document.getElementById('pay_day').value = new Date().toISOString().substring(0, 10);
+                                </script>   
+                            </div>
+                    </form>
+                </div>      
+            </div>              
         </main>
-        
     </div>
 
 

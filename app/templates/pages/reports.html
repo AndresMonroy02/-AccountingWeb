@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Reportes</title>
     <link rel="stylesheet" href="{% static 'app/expenses.css' %}">
+    <link rel="stylesheet" href="{% static 'app/input-form.css' %}">
 </head>
 
 <body>
@@ -170,20 +171,26 @@
         <div class="modal-container">
             <form class="expenses-form" method= POST>
             {% csrf_token %}
-                <h3>Ingrese los datos del reporte</h3>
-
-                <label for="">Digite la fecha de inicio</label>
-                <input type="date" id="e" name="start_date" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" />
-                <label for="">Digite la fecha Final</label>
-                <input type="date" id="e1" name="end_date" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" />
-                <input id = "name" name="name" value="Reporte">
-                <script>
-                    document.getElementById('e').value = new Date().toISOString().substring(0, 10);
-                    document.getElementById('e1').value = new Date().toISOString().substring(0, 10);
-                </script>
-                <a href="{%url 'reports'%}"><button type="submit" class="btn btn-input">Filtrar Fechas</button></a>
-                <a href="#" id="close"><button type="button" class="btn btn-input">Cancelar</button></a>
-                <script src="{% static 'js/popup.js' %}"></script>
+            <div class="tittle">
+                <h3>Ingrese los datos del gasto</h3>
+            </div>
+            
+            <span> </span>
+            <label for="">Digite la fecha de inicio</label>
+            <input type="date" id="e" name="start_date" class="input-form" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" />
+            <label for="">Digite la fecha Final</label>
+            <input type="date" id="e1" name="end_date" class="input-form" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]" />
+            <label for="">Digite el nombre del reporte</label>
+            <input id = "name" name="name" value="Reporte" class="input-form" readonly>
+            <div class="btns">
+            <button class="input-btn" type="submit" >Guardar</button>
+            <button  class="input-btn" type="button" id ="close">Cancelar</button>
+            </div>
+            <script src="{% static 'js/popup.js' %}"></script>
+            <script>
+                document.getElementById('e').value = new Date().toISOString().substring(0, 10);
+                document.getElementById('e1').value = new Date().toISOString().substring(0, 10);
+            </script>
             </form>
         </div>
     </div>

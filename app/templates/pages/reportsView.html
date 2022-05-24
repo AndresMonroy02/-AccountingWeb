@@ -59,7 +59,7 @@
             <h2>
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
-                </label> Mis Gastos 
+                </label> Reporte/Vista 
             </h2>
             
             <div class="user-wrapper">
@@ -77,7 +77,7 @@
                 <div class="card-single" type="button" id="div-modal">
                     
                     <div>
-                        <h1>$0.000 saldo disponible</h1> 
+                        <h1>{{salary}} saldo disponible</h1> 
                     </div>
                     <div>
                         <span class="las la-dollar-sign"></span>
@@ -86,9 +86,7 @@
 
                 <div class="card-single">
                     <div>
-                        <h1>5</h1>
-                        <span>Agregar vehiculos</span>
-                        <a href="{%url 'vehicules'%}"><button type="button" class="btn btn-navbar">Mis Vehiculos </button></a>
+                        <h1>Tienes {{num_vehicules}} vehiculos</h1>
                     </div>
                     <div>
                         <span class="las la-car-side"></span>
@@ -97,18 +95,17 @@
 
                 <div class="card-single">
                     <div>
-                        <h1>25</h1>
-                        <span>Cuentas por pagar"</span>
+                        <h1>Tienes {{num_reports}} Reportes</h1>
                     </div>
                     <div>
-                        <span class="las la-question"></span>
+                        <span class="las la-chart-pie"></span>
                     </div>
                 </div>
 
                 <div class="card-single">
                     <div>
-                        <h1>2</h1>
-                        <span>Nuevos Reportes</span>
+                        <h1>{{total_expenses}}55555</h1>
+                        <span>Has Gastado</span>
                     </div>
                     <div>
                         <span class="lab la-wpforms"></span>
@@ -121,8 +118,7 @@
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Gastos Recientes</h3>
-                            <span><button id="open">Agregar gastos</span>                         
+                            <h3>Reporte</h3>                      
                         </div>
 
                         <div class="card-body">

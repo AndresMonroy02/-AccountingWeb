@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Configuraciones</title>
     <link rel="stylesheet" href="{% static 'app/expenses.css' %}">
+    <link rel="stylesheet" href="{% static 'app/config-form.css' %}">
 </head>
 
 <body>
@@ -80,10 +81,10 @@
                         </div>
                         <div class="row">
                             <div class="col-25">
-                            <label for="lname">Salario</label>
+                            <label for="fname">Salario</label>
                             </div>
                             <div class="col-75">
-                            <input type="integer" id="salary" name="salary"  placeholder="{{user.salario}}">
+                            <input id ="input" type="number" id="salary" name="salary" value="{{user.salary}}">
                             </div>
                         </div>
                         <div class="row">
@@ -91,12 +92,13 @@
                             <label for="lname">Dia de pago</label>
                             </div>
                             <div class="col-75">
-                            <input type="date" id="pay_day" name="pay_day"  placeholder="{{user.pay_day}}">
+                            <input type="date" id="pay_day" name="pay_day"  value="{{user.pay_day}}">
                             </div>
                         </div>
                         <div class="row">
                             <div class="card-header">
                                 <h3>Opciones</h3>
+                                <a href="{% url 'config' user_id %}"><button type="submit" class="btn btn-input">Cancelar</button></a>
                                 <a href="#"><button type="submit" class="btn btn-input">Guardar</button></a>
                             </div>
                             <script>

@@ -10,7 +10,6 @@ urlpatterns = [
     path('', views.index, name = 'index'),
     #urls de acceso
 
-
     #urls system
     path('login', views.login, name = 'login'),
     path('logout', views.logout_site, name = 'logout'),
@@ -19,6 +18,7 @@ urlpatterns = [
     #urls modulos
     path('expenses', views.expenses, name = 'expenses'),
     path('vehicules', views.vehicules, name = 'vehicules'),
+    path('editVehicule/<str:vehicule_id>/', views.edit_vehicule, name = 'editVehicule'),
     path('reports', views.reports, name = 'reports'),
     path('reportsViews/<str:report_id>/', views.show_reports, name = 'reportsViews'),
 
@@ -31,8 +31,5 @@ urlpatterns = [
     path("config", views.config, name = "config"),
     path('config/<str:user_id>/', views.config, name = 'config'),
     path('configedit/<str:user_id>/', views.configedit, name = 'configedit'),
-
-    
-
 ]
 
