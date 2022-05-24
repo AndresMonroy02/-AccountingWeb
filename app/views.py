@@ -127,7 +127,8 @@ def vehicules(request):
             oil_change = values['oil_change']
             id = request.session['usuario']['id']
             user_id = Users.objects.get(id=id)
-            vehicule = Vehicule(placa=placa, year=year, model=model, tecno=tecno, soat=soat, oil_change=oil_change, user=user_id)
+            vehicule_id = generate_short_id(Vehicule)
+            vehicule = Vehicule(id=vehicule_id, placa=placa, year=year, model=model, tecno=tecno, soat=soat, oil_change=oil_change, user=user_id)
             vehicule.save()
             return redirect('vehicules')
         user_id = request.session['usuario']['id']
@@ -229,15 +230,15 @@ def edit_vehicule(request, vehicule_id):
             tecno = values('tecno')
             soat = values('soat')
             oil_change = values('oil_change')
-            vehicule = Vehicule.objects.get(placa=vehicule_id)
+            vehicule = Vehicule.objects.get(id=vehicule_id)
             user_id = request.session['usuario']['id']
             user = Users.objects.get(id=user_id)
             num_vehicules, name,email,salary, pay_day= get_user_info(user_id)
-            vehicule = Vehicule(placa=placa, year=year, model=model, tecno=tecno, soat=soat, oil_change=oil_change, user=user)
+            vehicule = Vehicule(id=vehicule_id, placa=placa, year=year, model=model, tecno=tecno, soat=soat, oil_change=oil_change, user=user)
             vehicule.save()
             return redirect('vehicules')
         else:
-            vehicule = Vehicule.objects.get(placa=vehicule_id)
+            vehicule = Vehicule.objects.get(id=vehicule_id)
             user_id = request.session['usuario']['id']
             num_vehicules, name,email,salary, pay_day= get_user_info(user_id)
             return render(request, 'pages/edit_vehicule.html', {'vehicule':vehicule, 'name':name , 'email':email, 'num_vehicules':num_vehicules, 'salary':salary, 'user_id':user_id})

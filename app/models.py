@@ -39,7 +39,8 @@ class Expenses(models.Model):
 
 
 class Vehicule(models.Model):
-    placa = models.CharField(primary_key=True, max_length=40, verbose_name="Placa")
+    id = models.CharField(primary_key=True, max_length=100, verbose_name="Id")
+    placa = models.CharField(max_length=40, verbose_name="Placa")
     year = models.CharField(max_length=10, verbose_name="Año")
     model = models.CharField(max_length=10, verbose_name="Modelo")
     tecno = models.DateField(max_length=10, verbose_name="tecnomecanica")
