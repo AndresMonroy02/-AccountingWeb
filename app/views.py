@@ -203,17 +203,14 @@ def edit(request, expense_id):
             user_id = request.session['usuario']['id']
             user = Users.objects.get(id=user_id)
             num_vehicules, name,email,salary, pay_day= get_user_info(user_id)
-            if expense_category == NULL:
-                return redirect('edit', expense_id)
-            else:
-                if expense_description == '':
+            if expense_description == '':
                     expense_description = 'Sin descripcion'
                     expense = Expenses(id=expense_id, amount=expense_amount, category=expense_category, description=expense_description, date=expense_date, user=user)
                     expense.save()
-                elif expense_description != '':
+            elif expense_description != '':
                     expense = Expenses(id=expense_id, amount=expense_amount, category=expense_category, description=expense_description, date=expense_date, user=user)
                     expense.save()
-                return redirect('expenses')
+            return redirect('expenses')
         else:
             expense = Expenses.objects.get(id=expense_id)
             user_id = request.session['usuario']['id']
