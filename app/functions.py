@@ -1,6 +1,7 @@
 from asyncio.windows_events import NULL
 from random import random
 from socket import MsgFlag
+from tracemalloc import start
 from urllib import request
 from django.shortcuts import render, redirect
 from .models import User_info, Users, Expenses, Vehicule
@@ -10,6 +11,7 @@ import re
 import uuid
 import shortuuid
 import bcrypt
+from datetime import datetime
 
 def generate_id():
     id = str(uuid.uuid4())
@@ -56,7 +58,17 @@ def get_user_info(user_id):
     user_info = User_info.objects.get(id=user_id)
     name = user_data.name
     email = user_data.email
-    salary = user_info.salary
+    date = (datetime.today().strftime('%Y-%m-%d'))
+    start_date = datetime.today().replace(day=1).strftime('%Y-%m-%d')
+    end_date= date
+    print(start_date)
+    print(end_date)
+    month_expenses_list = filter_by_dates(start_date, end_date, user_id)
+    month_expenses = 0
+    for expense in month_expenses_list:
+        month_expenses += expense.amount
+    salary = user_info.salary - month_expenses
+    print(salary)
     pay_day = user_info.pay_day
     return num_vehicules, name, email, salary , pay_day
 
